@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# assets originais em alta (36 MB) — as versoes otimizadas usadas pelo site
+# estao versionadas em public/img/
+/*.png
