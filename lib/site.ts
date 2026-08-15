@@ -12,7 +12,13 @@ export const site = {
   slogan: "Construindo uma Bahia de oportunidades para todos",
   chamada:
     "Administradora, deputada federal pela Bahia e presidente do PL Mulher. Eleita em 2022 com mais de 160 mil votos — a primeira parlamentar votada nos 417 municípios do estado.",
-  url: "https://robertaroma.com.br",
+  /**
+   * Dominio deste site, usado como base das URLs absolutas de Open Graph.
+   * Ao apontar um dominio proprio, troque aqui ou defina NEXT_PUBLIC_SITE_URL.
+   * Nao usar robertaroma.com.br: e o site institucional, e as imagens
+   * daqui nao existem la (og:image quebrado).
+   */
+  url: "https://robertaroma-site.vercel.app",
 } as const;
 
 /** Dados do registro de candidatura — DivulgaCand / TSE. */

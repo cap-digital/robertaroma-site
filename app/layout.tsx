@@ -13,8 +13,18 @@ const geistSans = localFont({
 const titulo = `${site.nome} ${site.numero} — ${site.cargo} pela ${site.uf}`;
 const descricao = `${site.slogan}. ${site.chamada}`;
 
+/**
+ * Base das URLs absolutas de Open Graph. Precisa apontar para ESTE deploy —
+ * se apontar para outro dominio, o og:image quebra nas previas do WhatsApp.
+ */
+const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : site.url);
+
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
+  metadataBase: new URL(baseUrl),
   title: titulo,
   description: descricao,
   keywords: [site.nome, site.cargo, site.uf, site.partido, site.numero, "Eleições 2026"],
@@ -24,13 +34,13 @@ export const metadata: Metadata = {
     title: titulo,
     description: descricao,
     siteName: site.nome,
-    images: [{ url: "/img/roberta-oficial.png", width: 933, height: 1400, alt: site.nome }],
+    images: [{ url: "/img/og.png", width: 1200, height: 630, alt: titulo }],
   },
   twitter: {
     card: "summary_large_image",
     title: titulo,
     description: descricao,
-    images: ["/img/roberta-oficial.png"],
+    images: ["/img/og.png"],
   },
   // Os ícones vêm de app/icon.png e app/apple-icon.png (convenção do Next).
   robots: { index: true, follow: true },
