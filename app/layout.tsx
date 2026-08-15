@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     description: descricao,
     images: ["/img/roberta-oficial.png"],
   },
-  icons: { icon: "/img/logo-2222.png" },
+  // Os ícones vêm de app/icon.png e app/apple-icon.png (convenção do Next).
   robots: { index: true, follow: true },
 };
 
